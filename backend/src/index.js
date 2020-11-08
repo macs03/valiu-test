@@ -21,9 +21,20 @@ app.get("/", (req, res) => {
 app.use(bodyParser.json());
 
 io.on("connection", socket => {
-  console.log("a user connected");
+  console.info("a user connected", socket.client.id);
+
+  socket.broadcast.emit("hi");
+
+  socket.on("disconnect", () => {
+    console.info("user disconnected", socket.client.id);
+  });
+
+  socket.on("badged", msg => {
+    console.info(msg);
+    io.emit("badged", msg);
+  });
 });
 
 server.listen(config.PORT, () => {
-  console.log(`App server runing in port http://localhost:${config.PORT}`);
+  console.info(`App server runing in port http://localhost:${config.PORT}`);
 });
