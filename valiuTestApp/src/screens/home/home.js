@@ -1,5 +1,6 @@
 import React, {useEffect, useState} from 'react';
 import {View, Text, Button, ScrollView} from 'react-native';
+import PropTypes from 'prop-types';
 import app from '../../lib/app';
 import Tag from '../../components/tag/tag';
 import styles from './styles';
@@ -33,6 +34,10 @@ const Home = ({navigation}) => {
       </ScrollView>
     </View>
   );
+};
+
+Home.propTypes = {
+  navigation: PropTypes.object.isRequired,
 };
 
 export default Home;

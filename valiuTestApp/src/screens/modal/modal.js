@@ -1,5 +1,6 @@
 import * as React from 'react';
 import {View, Text, Button} from 'react-native';
+import PropTypes from 'prop-types';
 import app from '../../lib/app';
 import styles from './styles';
 
@@ -17,6 +18,10 @@ const Modal = ({navigation: {goBack}}) => {
       <Button title="Send Something" onPress={() => sendMessage()} />
     </View>
   );
+};
+
+Modal.propTypes = {
+  navigation: PropTypes.object.isRequired,
 };
 
 export default Modal;
