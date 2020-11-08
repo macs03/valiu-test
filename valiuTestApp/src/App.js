@@ -6,33 +6,25 @@ import {
   StatusBar,
   Button,
 } from 'react-native';
-
+import SplashScreen from 'react-native-splash-screen';
 import {Header} from 'react-native/Libraries/NewAppScreen';
 
-import io from 'socket.io-client';
-
-import config from './config';
+import app from './lib/app';
 
 const App = () => {
-  let socket;
   let amount = 0;
   useEffect(() => {
-    const server = `${config.server}:${config.port}`;
-    // for test
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-    socket = io(server, {
-      forceNew: true,
+    app.boot().then(() => {
+      SplashScreen.hide();
     });
-    socket.on('connect', () => console.info('Connection Sucessfull!!'));
-
-    socket.on('badged', (event) => {
-      console.log('Message: ', event);
-    });
-  });
+    // socket.on('badged', (event) => {
+    //   console.log('Message: ', event);
+    // });
+  }, []);
 
   const sendMessage = () => {
     amount++;
-    socket.emit('badged', amount);
+    app.socket.emit('badged', amount);
   };
 
   return (
