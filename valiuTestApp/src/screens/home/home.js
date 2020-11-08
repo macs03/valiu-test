@@ -15,7 +15,7 @@ const Home = ({navigation}) => {
 
   return (
     <View style={styles.container}>
-      <Text style={styles.darkText}>Hello Screen</Text>
+      <Text style={styles.darkText}>VALIU TEST APP</Text>
       <Button
         title="Go to Modal"
         onPress={() => navigation.navigate('Modal')}

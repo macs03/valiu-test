@@ -13,7 +13,11 @@ const RootStack = createStackNavigator();
 const MainStackNavigator = () => {
   return (
     <Stack.Navigator initialRouteName="Home">
-      <Stack.Screen name="Home" component={Home} />
+      <Stack.Screen
+        name="Home"
+        component={Home}
+        options={{headerTransparent: true, title: ''}}
+      />
     </Stack.Navigator>
   );
 };
@@ -27,7 +31,11 @@ const RootStackScreen = () => {
           component={MainStackNavigator}
           options={{headerShown: false}}
         />
-        <RootStack.Screen name="Modal" component={Modal} />
+        <RootStack.Screen
+          name="Modal"
+          component={Modal}
+          options={{headerTransparent: true, title: '', headerLeft: null}}
+        />
       </RootStack.Navigator>
     </NavigationContainer>
   );
