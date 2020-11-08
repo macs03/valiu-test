@@ -4,11 +4,10 @@ import app from '../../lib/app';
 import styles from './styles';
 
 const Home = ({navigation}) => {
-  const [badges, setBadges] = useState([]);
+  const [tags, setTags] = useState([]);
   useEffect(() => {
-    app.socket.on('badged', (event) => {
-      console.log('Message: ', event);
-      setBadges(event);
+    app.socket.on('amountTag', (event) => {
+      setTags(event);
     });
   });
 
@@ -19,8 +18,8 @@ const Home = ({navigation}) => {
         title="Go to Modal"
         onPress={() => navigation.navigate('Modal')}
       />
-      {badges.map((badge) => (
-        <Text>{badge}</Text>
+      {tags.map((tag) => (
+        <Text>{tag}</Text>
       ))}
     </View>
   );

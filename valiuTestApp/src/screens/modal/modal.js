@@ -7,7 +7,7 @@ const Modal = ({navigation: {goBack}}) => {
   let amount = 0;
   const sendMessage = () => {
     amount++;
-    app.socket.emit('badged', amount);
+    app.socket.emit('amountTag', amount);
     goBack();
   };
 
