@@ -10,6 +10,6 @@ export default class App {
       .then(() => {
         console.info('App is ready!!!');
       })
-      .catch((err) => console.error(`Error while booting the app`, err));
+      .catch((err) => console.error('Error while booting the app', err));
   }
 }
