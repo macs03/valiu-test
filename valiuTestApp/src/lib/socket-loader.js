@@ -5,7 +5,8 @@ export default class SocketLoader {
   static boot(App) {
     const server = `${config.server}:${config.port}`;
     const socket = io(server, {
-      forceNew: true,
+      transports: ['websocket'],
+      jsonp: false,
     });
 
     socket.on('connect', () => console.info('Connection Sucessfull!!'));
