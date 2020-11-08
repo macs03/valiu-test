@@ -22,7 +22,7 @@ module.exports = {
     });
 
     socket.on("PING", () => {
-      io.emit("badged", allMessages);
+      io.emit("amountTag", allMessages);
     });
   }
 };
