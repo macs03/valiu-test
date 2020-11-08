@@ -1,5 +1,5 @@
 import React from 'react';
-import {View, Text, Button} from 'react-native';
+import {View, Text} from 'react-native';
 import PropTypes from 'prop-types';
 
 import colors from '../../themes/colors';
@@ -8,12 +8,20 @@ import styles from './styles';
 
 const Tag = ({editTag, deleteTag, tag, index}) => (
   <View style={styles.container}>
-    <Text style={[styles.tag, {backgroundColor: colors[ramdom(11)]}]}>
-      {tag}
-    </Text>
-    <Button title="..." onPress={() => () => {}} />
-    <Button title="Edit" onPress={() => editTag(index)} />
-    <Button title="Delete" onPress={() => deleteTag(index)} />
+    <View
+      style={[styles.tag, {backgroundColor: colors[ramdom(11)]}]}
+      onPress={() => () => {}}>
+      <Text style={styles.tagText}>{tag}</Text>
+    </View>
+    <View style={styles.moreButton} onPress={() => () => {}}>
+      <Text>...</Text>
+    </View>
+    <View style={styles.editButton} onPress={() => editTag(index)}>
+      <Text>Edit</Text>
+    </View>
+    <View style={styles.deleteButton} onPress={() => deleteTag(index)}>
+      <Text>Delete</Text>
+    </View>
   </View>
 );
 
