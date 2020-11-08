@@ -1,3 +1,10 @@
+let allMessages = [];
+
+const handleEvents = event => {
+  allMessages.push(event);
+  allMessages.reverse();
+};
+
 module.exports = {
   emitWelcomeMessage: socket => {
     socket.broadcast.emit("hi");
@@ -8,9 +15,10 @@ module.exports = {
     });
   },
   badgedEvent: (socket, io) => {
-    socket.on("badged", msg => {
-      console.info(msg);
-      io.emit("badged", msg);
+    socket.on("badged", message => {
+      console.info(message);
+      handleEvents(message);
+      io.emit("badged", allMessages);
     });
   }
 };
