@@ -1,6 +1,7 @@
 import React, {useEffect, useState} from 'react';
-import {View, Text, Button} from 'react-native';
+import {View, Text, Button, ScrollView} from 'react-native';
 import app from '../../lib/app';
+import Tag from '../../components/tag/tag';
 import styles from './styles';
 
 const Home = ({navigation}) => {
@@ -18,9 +19,18 @@ const Home = ({navigation}) => {
         title="Go to Modal"
         onPress={() => navigation.navigate('Modal')}
       />
-      {tags.map((tag) => (
-        <Text>{tag}</Text>
-      ))}
+      <ScrollView
+        contentInsetAdjustmentBehavior="automatic"
+        style={styles.scrollView}>
+        {tags.map((tag, index) => (
+          <Tag
+            tag={tag}
+            index={index}
+            editTag={() => {}}
+            deleteTag={() => {}}
+          />
+        ))}
+      </ScrollView>
     </View>
   );
 };
