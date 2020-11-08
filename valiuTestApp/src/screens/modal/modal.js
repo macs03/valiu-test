@@ -3,11 +3,12 @@ import {View, Text, Button} from 'react-native';
 import app from '../../lib/app';
 import styles from './styles';
 
-function Modal({navigation}) {
+const Modal = ({navigation: {goBack}}) => {
   let amount = 0;
   const sendMessage = () => {
     amount++;
     app.socket.emit('badged', amount);
+    goBack();
   };
 
   return (
@@ -16,6 +17,6 @@ function Modal({navigation}) {
       <Button title="Send Something" onPress={() => sendMessage()} />
     </View>
   );
-}
+};
 
 export default Modal;
