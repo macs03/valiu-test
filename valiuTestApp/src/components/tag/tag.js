@@ -27,7 +27,7 @@ const Tag = ({editTag, deleteTag, tag, index}) => {
   };
 
   return (
-    <View style={styles.container}>
+    <View style={styles.container} key={index}>
       <View style={[styles.tag, {backgroundColor: colors[ramdom(11)]}]}>
         <Text style={styles.tagText}>{tag}</Text>
       </View>
@@ -57,7 +57,7 @@ const Tag = ({editTag, deleteTag, tag, index}) => {
 Tag.propTypes = {
   editTag: PropTypes.func.isRequired,
   deleteTag: PropTypes.func.isRequired,
-  tag: PropTypes.string.isRequired,
+  tag: PropTypes.number.isRequired,
   index: PropTypes.number.isRequired,
 };
 
