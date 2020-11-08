@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from 'react';
-import {View, Text, Button, ScrollView} from 'react-native';
+import {View, Text, TouchableOpacity, ScrollView} from 'react-native';
 import PropTypes from 'prop-types';
 import app from '../../lib/app';
 import Tag from '../../components/tag/tag';
@@ -15,11 +15,14 @@ const Home = ({navigation}) => {
 
   return (
     <View style={styles.container}>
-      <Text style={styles.darkText}>VALIU TEST APP</Text>
-      <Button
-        title="Go to Modal"
-        onPress={() => navigation.navigate('Modal')}
-      />
+      <View style={styles.header}>
+        <Text style={styles.darkText}>VALIU TEST APP</Text>
+        <TouchableOpacity
+          style={styles.addButton}
+          onPress={() => navigation.navigate('Modal')}>
+          <Text>+</Text>
+        </TouchableOpacity>
+      </View>
       <ScrollView
         contentInsetAdjustmentBehavior="automatic"
         style={styles.scrollView}>

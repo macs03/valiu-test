@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from 'react';
-import {StatusBar} from 'react-native';
+import {StatusBar, SafeAreaView, StyleSheet} from 'react-native';
 import SplashScreen from 'react-native-splash-screen';
 
 import app from './lib/app';
@@ -22,10 +22,16 @@ const App = () => {
 
   return (
     <>
-      <StatusBar barStyle="dark-content" />
-      <MainNavigator />
+      <SafeAreaView style={styles.content}>
+        <StatusBar barStyle="dark-content" />
+        <MainNavigator />
+      </SafeAreaView>
     </>
   );
 };
+
+const styles = StyleSheet.create({
+  content: {height: '100%'},
+});
 
 export default App;
