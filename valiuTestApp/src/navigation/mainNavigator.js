@@ -6,11 +6,10 @@ import {enableScreens} from 'react-native-screens';
 
 enableScreens();
 
-function SplashScreen({navigation}) {
+function Modal({navigation}) {
   return (
     <View style={[styles.container, {backgroundColor: bgs[1]}]}>
-      <Text style={styles.lightText}>Splash Screen</Text>
-      <Button title="Go to Demo" onPress={() => navigation.navigate('Home')} />
+      <Text style={styles.lightText}>Modal Screen</Text>
     </View>
   );
 }
@@ -18,30 +17,42 @@ function SplashScreen({navigation}) {
 function Home({navigation}) {
   return (
     <View style={[styles.container, {backgroundColor: bgs[4]}]}>
-      <Text style={styles.darkText}>Demo Screen</Text>
-      <Button title="Go to Auth" onPress={() => navigation.navigate('Auth')} />
+      <Text style={styles.darkText}>Hole Screen</Text>
+      <Button
+        title="Go to Modal"
+        onPress={() => navigation.navigate('Modal')}
+      />
     </View>
   );
 }
 
 const Stack = createStackNavigator();
+const RootStack = createStackNavigator();
 
 const MainStackNavigator = () => {
   return (
+    <Stack.Navigator initialRouteName="Home">
+      <Stack.Screen name="Home" component={Home} />
+    </Stack.Navigator>
+  );
+};
+
+const RootStackScreen = () => {
+  return (
     <NavigationContainer>
-      <Stack.Navigator initialRouteName="Splash">
-        <Stack.Screen
-          name="Splash"
-          component={SplashScreen}
+      <RootStack.Navigator mode="modal">
+        <RootStack.Screen
+          name="Main"
+          component={MainStackNavigator}
           options={{headerShown: false}}
         />
-        <Stack.Screen name="Home" component={Home} />
-      </Stack.Navigator>
+        <RootStack.Screen name="Modal" component={Modal} />
+      </RootStack.Navigator>
     </NavigationContainer>
   );
 };
 
-export default MainStackNavigator;
+export default RootStackScreen;
 
 const styles = StyleSheet.create({
   container: {flex: 1, alignItems: 'center', justifyContent: 'center'},
