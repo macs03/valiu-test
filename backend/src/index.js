@@ -25,7 +25,5 @@ io.on("connection", socket => {
 });
 
 server.listen(config.PORT, () => {
-  console.log(
-    `Code_Sample server runing in port http://localhost:${config.PORT}`
-  );
+  console.log(`App server runing in port http://localhost:${config.PORT}`);
 });
