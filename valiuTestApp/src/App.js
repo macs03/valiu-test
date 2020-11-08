@@ -1,18 +1,12 @@
 import React, {useEffect} from 'react';
-import {
-  SafeAreaView,
-  StyleSheet,
-  ScrollView,
-  StatusBar,
-  Button,
-} from 'react-native';
+import {StatusBar} from 'react-native';
 import SplashScreen from 'react-native-splash-screen';
-import {Header} from 'react-native/Libraries/NewAppScreen';
 
 import app from './lib/app';
+import MainNavigator from './navigation/mainNavigator';
 
 const App = () => {
-  let amount = 0;
+  // let amount = 0;
   useEffect(() => {
     app.boot().then(() => {
       SplashScreen.hide();
@@ -22,26 +16,17 @@ const App = () => {
     // });
   }, []);
 
-  const sendMessage = () => {
-    amount++;
-    app.socket.emit('badged', amount);
-  };
+  // const sendMessage = () => {
+  //   amount++;
+  //   app.socket.emit('badged', amount);
+  // };
 
   return (
     <>
       <StatusBar barStyle="dark-content" />
-      <SafeAreaView>
-        <ScrollView
-          contentInsetAdjustmentBehavior="automatic"
-          style={styles.scrollView}>
-          <Header />
-          <Button title="Press" onPress={sendMessage} />
-        </ScrollView>
-      </SafeAreaView>
+      <MainNavigator />
     </>
   );
 };
-
-const styles = StyleSheet.create({});
 
 export default App;
