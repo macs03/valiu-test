@@ -1,25 +1,24 @@
-import React, {useEffect} from 'react';
+import React, {useEffect, useState} from 'react';
 import {StatusBar} from 'react-native';
 import SplashScreen from 'react-native-splash-screen';
 
 import app from './lib/app';
 import MainNavigator from './navigation/mainNavigator';
+import Splash from './screens/splash/splash';
 
 const App = () => {
-  // let amount = 0;
+  const [isBooting, setIsBooting] = useState(true);
+
   useEffect(() => {
     app.boot().then(() => {
       SplashScreen.hide();
+      setIsBooting(false);
     });
-    // socket.on('badged', (event) => {
-    //   console.log('Message: ', event);
-    // });
   }, []);
 
-  // const sendMessage = () => {
-  //   amount++;
-  //   app.socket.emit('badged', amount);
-  // };
+  if (isBooting) {
+    return <Splash />;
+  }
 
   return (
     <>
