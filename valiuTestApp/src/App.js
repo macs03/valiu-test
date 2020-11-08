@@ -1,5 +1,11 @@
 import React, {useEffect} from 'react';
-import {SafeAreaView, StyleSheet, ScrollView, StatusBar} from 'react-native';
+import {
+  SafeAreaView,
+  StyleSheet,
+  ScrollView,
+  StatusBar,
+  Button,
+} from 'react-native';
 
 import {Header} from 'react-native/Libraries/NewAppScreen';
 
@@ -8,9 +14,13 @@ import io from 'socket.io-client';
 import config from './config';
 
 const App = () => {
+  let socket;
+  let amount = 0;
   useEffect(() => {
     const server = `${config.server}:${config.port}`;
-    const socket = io(server, {
+    // for test
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    socket = io(server, {
       forceNew: true,
     });
     socket.on('connect', () => console.info('Connection Sucessfull!!'));
@@ -18,9 +28,12 @@ const App = () => {
     socket.on('badged', (event) => {
       console.log('Message: ', event);
     });
-
-    socket.emit('badged', '20.000');
   });
+
+  const sendMessage = () => {
+    amount++;
+    socket.emit('badged', amount);
+  };
 
   return (
     <>
@@ -30,6 +43,7 @@ const App = () => {
           contentInsetAdjustmentBehavior="automatic"
           style={styles.scrollView}>
           <Header />
+          <Button title="Press" onPress={sendMessage} />
         </ScrollView>
       </SafeAreaView>
     </>
