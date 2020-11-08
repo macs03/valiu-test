@@ -1,12 +1,4 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- *
- * @format
- * @flow strict-local
- */
-
-import React from 'react';
+import React, {useEffect} from 'react';
 import {
   SafeAreaView,
   StyleSheet,
@@ -24,7 +16,17 @@ import {
   ReloadInstructions,
 } from 'react-native/Libraries/NewAppScreen';
 
-const App: () => React$Node = () => {
+import io from 'socket.io-client';
+
+import config from './config';
+
+const App = () => {
+  useEffect(() => {
+    const server = `${config.server}:${config.port}`;
+    console.log(server);
+    const socket = io(server);
+  });
+
   return (
     <>
       <StatusBar barStyle="dark-content" />
