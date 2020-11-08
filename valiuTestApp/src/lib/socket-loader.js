@@ -9,7 +9,10 @@ export default class SocketLoader {
       jsonp: false,
     });
 
-    socket.on('connect', () => console.info('Connection Sucessfull!!'));
+    socket.on('connect', () => {
+      console.info('Connection Sucessfull!!');
+      socket.emit('PING', 'ping');
+    });
     App.socket = socket;
   }
 }

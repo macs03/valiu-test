@@ -20,5 +20,9 @@ module.exports = {
       handleEvents(message);
       io.emit("badged", allMessages);
     });
+
+    socket.on("PING", () => {
+      io.emit("badged", allMessages);
+    });
   }
 };
