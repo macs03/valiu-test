@@ -1,41 +1,37 @@
-import React, {useEffect} from 'react';
-import {SafeAreaView, StyleSheet, ScrollView, StatusBar} from 'react-native';
+import React, {useEffect, useState} from 'react';
+import {StatusBar, SafeAreaView, StyleSheet} from 'react-native';
+import SplashScreen from 'react-native-splash-screen';
 
-import {Header} from 'react-native/Libraries/NewAppScreen';
-
-import io from 'socket.io-client';
-
-import config from './config';
+import app from './lib/app';
+import MainNavigator from './navigation/mainNavigator';
+import Splash from './screens/splash/splash';
 
 const App = () => {
+  const [isBooting, setIsBooting] = useState(true);
+
   useEffect(() => {
-    const server = `${config.server}:${config.port}`;
-    const socket = io(server, {
-      forceNew: true,
+    app.boot().then(() => {
+      SplashScreen.hide();
+      setIsBooting(false);
     });
-    socket.on('connect', () => console.info('Connection Sucessfull!!'));
+  }, []);
 
-    socket.on('badged', (event) => {
-      console.log('Message: ', event);
-    });
-
-    socket.emit('badged', '20.000');
-  });
+  if (isBooting) {
+    return <Splash />;
+  }
 
   return (
     <>
-      <StatusBar barStyle="dark-content" />
-      <SafeAreaView>
-        <ScrollView
-          contentInsetAdjustmentBehavior="automatic"
-          style={styles.scrollView}>
-          <Header />
-        </ScrollView>
+      <SafeAreaView style={styles.content}>
+        <StatusBar barStyle="dark-content" />
+        <MainNavigator />
       </SafeAreaView>
     </>
   );
 };
 
-const styles = StyleSheet.create({});
+const styles = StyleSheet.create({
+  content: {height: '100%'},
+});
 
 export default App;

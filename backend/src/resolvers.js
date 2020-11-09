@@ -14,11 +14,15 @@ module.exports = {
       console.info("user disconnected", socket.client.id);
     });
   },
-  badgedEvent: (socket, io) => {
-    socket.on("badged", message => {
+  amountTagEvent: (socket, io) => {
+    socket.on("amountTag", message => {
       console.info(message);
       handleEvents(message);
-      io.emit("badged", allMessages);
+      io.emit("amountTag", allMessages);
+    });
+
+    socket.on("PING", () => {
+      io.emit("amountTag", allMessages);
     });
   }
 };

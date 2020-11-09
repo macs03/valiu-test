@@ -26,7 +26,7 @@ io.on("connection", socket => {
 
   resolvers.disconect(socket);
 
-  resolvers.badgedEvent(socket, io);
+  resolvers.amountTagEvent(socket, io);
 });
 
 server.listen(config.PORT, () => {

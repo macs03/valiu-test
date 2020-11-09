@@ -1,8 +1,14 @@
 package com.valiutestapp;
 
 import com.facebook.react.ReactActivity;
+import org.devio.rn.splashscreen.SplashScreen;
 
 public class MainActivity extends ReactActivity {
+
+  public void onCreate() {
+    SplashScreen.show(this);
+    super.onCreate(null);
+  }
 
   /**
    * Returns the name of the main component registered from JavaScript. This is used to schedule
