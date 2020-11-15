@@ -30,7 +30,10 @@ const Modal = ({navigation: {goBack}}) => {
     <View style={styles.container}>
       <View style={styles.header}>
         <Text style={styles.lightText}>Modal Screen</Text>
-        <TouchableOpacity style={styles.closeButton} onPress={() => goBack()}>
+        <TouchableOpacity
+          testID="goBack"
+          style={styles.closeButton}
+          onPress={() => goBack()}>
           <Text>X</Text>
         </TouchableOpacity>
       </View>
