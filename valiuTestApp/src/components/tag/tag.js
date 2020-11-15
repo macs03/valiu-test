@@ -31,7 +31,10 @@ const Tag = ({editTag, deleteTag, tag, index}) => {
       <View style={[styles.tag, {backgroundColor: colors[ramdom(11)]}]}>
         <Text style={styles.tagText}>{tag}</Text>
       </View>
-      <TouchableOpacity style={styles.moreButton} onPress={toggleButtons}>
+      <TouchableOpacity
+        testID="showButtons"
+        style={styles.moreButton}
+        onPress={toggleButtons}>
         <Text>...</Text>
       </TouchableOpacity>
       <Animated.View
@@ -40,12 +43,13 @@ const Tag = ({editTag, deleteTag, tag, index}) => {
           {transform: [{translateX: buttonsPosition}]},
         ]}>
         <TouchableOpacity
+          testID="edit"
           style={styles.editButton}
-          onPress={() => editTag(index)}
-          testID="edit">
+          onPress={() => editTag(index)}>
           <Text>Edit</Text>
         </TouchableOpacity>
         <TouchableOpacity
+          testID="delete"
           style={styles.deleteButton}
           onPress={() => deleteTag(index)}>
           <Text>Delete</Text>
