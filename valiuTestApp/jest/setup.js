@@ -80,3 +80,10 @@ jest.mock('../src/lib/app');
 jest.mock('@react-navigation/stack', () => {
   return {createStackNavigator: () => {}};
 });
+
+jest.mock('socket.io-client', () => {
+  const socket = jest.requireActual('socket.io-client');
+  socket.on = jest.fn();
+  socket.emit = jest.fn();
+  return socket.io;
+});

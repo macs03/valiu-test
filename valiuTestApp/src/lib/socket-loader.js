@@ -4,6 +4,7 @@ import config from './config';
 export default class SocketLoader {
   static boot(App) {
     const server = `${config.server}:${config.port}`;
+
     const socket = io(server, {
       transports: ['websocket'],
       jsonp: false,
@@ -13,6 +14,7 @@ export default class SocketLoader {
       console.info('Connection Sucessfull!!');
       socket.emit('PING', 'ping');
     });
+
     App.socket = socket;
   }
 }
