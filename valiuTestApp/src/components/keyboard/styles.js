@@ -2,32 +2,15 @@ import {StyleSheet} from 'react-native';
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
-    alignItems: 'center',
-    justifyContent: 'flex-start',
-  },
-  inputContainer: {
-    paddingTop: 24,
-    alignItems: 'center',
-    justifyContent: 'space-around',
-    height: 130,
-  },
-  lightText: {
-    fontSize: 20,
-    color: 'white',
-  },
-  darkText: {
-    fontSize: 20,
-    color: 'black',
-  },
-  sendButton: {
-    width: 230,
-    height: 50,
+    position: 'absolute',
+    bottom: 0,
+    left: 0,
+    width: '100%',
+    height: '45%',
     backgroundColor: 'rgba(25,105,0,0.8)',
     justifyContent: 'center',
     alignItems: 'center',
-    borderRadius: 25,
-    padding: 2,
+    paddingBottom: 70,
   },
   header: {
     backgroundColor: 'rgba(0,0,0,0.8)',
@@ -38,12 +21,18 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     height: 70,
   },
-  closeButton: {
-    position: 'absolute',
-    top: '12.5%',
-    right: 10,
-    width: 50,
-    height: 50,
+  darkText: {color: 'white', alignSelf: 'center'},
+  pad: {
+    width: '100%',
+    flexDirection: 'row',
+    flexWrap: 'wrap',
+    justifyContent: 'space-around',
+    alignItems: 'center',
+    paddingTop: 20,
+  },
+  itemContainer: {
+    width: '33%',
+    height: '33%',
     backgroundColor: '#696969',
     justifyContent: 'center',
     alignItems: 'center',

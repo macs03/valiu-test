@@ -1,0 +1,120 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders correctly 1`] = `
+<View
+  style={
+    Object {
+      "alignItems": "center",
+      "flex": 1,
+      "justifyContent": "flex-start",
+    }
+  }
+>
+  <View
+    style={
+      Object {
+        "alignItems": "center",
+        "backgroundColor": "rgba(0,0,0,0.8)",
+        "flexDirection": "row",
+        "height": 70,
+        "justifyContent": "center",
+        "position": "relative",
+        "width": "100%",
+      }
+    }
+  >
+    <Text
+      style={
+        Object {
+          "color": "white",
+          "fontSize": 20,
+        }
+      }
+    >
+      Modal Screen
+    </Text>
+    <View
+      accessible={true}
+      focusable={true}
+      onClick={[Function]}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        Object {
+          "alignItems": "center",
+          "backgroundColor": "#696969",
+          "borderRadius": 25,
+          "height": 50,
+          "justifyContent": "center",
+          "opacity": 1,
+          "position": "absolute",
+          "right": 10,
+          "top": "12.5%",
+          "width": 50,
+        }
+      }
+      testID="goBack"
+    >
+      <Text>
+        X
+      </Text>
+    </View>
+  </View>
+  <View
+    style={
+      Object {
+        "alignItems": "center",
+        "height": 130,
+        "justifyContent": "space-around",
+        "paddingTop": 24,
+      }
+    }
+  >
+    <TextInput
+      allowFontScaling={true}
+      onFocus={[Function]}
+      placeholder="Add amount"
+      rejectResponderTermination={true}
+      underlineColorAndroid="transparent"
+    />
+    <View
+      accessible={true}
+      focusable={true}
+      onClick={[Function]}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        Object {
+          "alignItems": "center",
+          "backgroundColor": "rgba(25,105,0,0.8)",
+          "borderRadius": 25,
+          "height": 50,
+          "justifyContent": "center",
+          "opacity": 1,
+          "padding": 2,
+          "width": 230,
+        }
+      }
+    >
+      <Text
+        style={
+          Object {
+            "color": "white",
+            "fontSize": 20,
+          }
+        }
+      >
+        Send Amount
+      </Text>
+    </View>
+  </View>
+</View>
+`;

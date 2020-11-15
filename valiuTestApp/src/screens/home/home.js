@@ -39,6 +39,7 @@ const Home = ({navigation}) => {
       <Animated.View style={[styles.header, {height: headerHeight}]}>
         <Text style={styles.darkText}>VALIU TEST APP</Text>
         <TouchableOpacity
+          testID="goToModal"
           style={styles.addButton}
           onPress={() => navigation.navigate('Modal')}>
           <Text>+</Text>
