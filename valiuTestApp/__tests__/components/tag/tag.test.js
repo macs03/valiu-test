@@ -10,6 +10,9 @@ import Tag from '../../../src/components/tag/tag';
 import renderer from 'react-test-renderer';
 import {on, Interactions, findByTestId} from '../../../src/lib/user-simulator';
 
+/* Mock random */
+global.Math.random = () => 0;
+
 it('renders correctly', () => {
   const tree = renderer.create(
     <Tag index={0} editTag={() => {}} deleteTag={() => {}} tag={'1,500'} />,

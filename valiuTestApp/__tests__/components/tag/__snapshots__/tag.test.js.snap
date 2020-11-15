@@ -22,7 +22,7 @@ exports[`renders correctly 1`] = `
           "width": "50%",
         },
         Object {
-          "backgroundColor": "#E9C46A",
+          "backgroundColor": "#EC0B43",
         },
       ]
     }
