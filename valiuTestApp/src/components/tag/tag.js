@@ -57,7 +57,7 @@ const Tag = ({editTag, deleteTag, tag, index}) => {
 Tag.propTypes = {
   editTag: PropTypes.func.isRequired,
   deleteTag: PropTypes.func.isRequired,
-  tag: PropTypes.number.isRequired,
+  tag: PropTypes.string.isRequired,
   index: PropTypes.number.isRequired,
 };
 
