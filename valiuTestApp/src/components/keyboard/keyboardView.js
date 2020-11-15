@@ -14,6 +14,7 @@ const KeyboardView = ({title, handlingPad}) => {
         {pad.map((item) => (
           <TouchableOpacity
             key={item}
+            testID={item}
             onPress={() => handlingPad(item)}
             style={styles.itemContainer}>
             <Text>{item}</Text>
