@@ -41,7 +41,8 @@ const Tag = ({editTag, deleteTag, tag, index}) => {
         ]}>
         <TouchableOpacity
           style={styles.editButton}
-          onPress={() => editTag(index)}>
+          onPress={() => editTag(index)}
+          testID="edit">
           <Text>Edit</Text>
         </TouchableOpacity>
         <TouchableOpacity

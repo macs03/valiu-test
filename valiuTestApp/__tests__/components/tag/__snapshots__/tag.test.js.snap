@@ -1,0 +1,280 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`calls on edit button 1`] = `
+<View
+  style={
+    Object {
+      "alignItems": "center",
+      "flexDirection": "row",
+      "justifyContent": "center",
+      "marginVertical": 10,
+      "width": "100%",
+    }
+  }
+>
+  <View
+    style={
+      Array [
+        Object {
+          "borderRadius": 15,
+          "marginRight": 20,
+          "paddingVertical": 10,
+          "width": "50%",
+        },
+        Object {
+          "backgroundColor": "#2A9D8F",
+        },
+      ]
+    }
+  >
+    <Text
+      style={
+        Object {
+          "color": "gray",
+          "fontSize": 20,
+          "textAlign": "center",
+          "width": "100%",
+        }
+      }
+    >
+      1,500
+    </Text>
+  </View>
+  <View
+    accessible={true}
+    focusable={true}
+    onClick={[Function]}
+    onResponderGrant={[Function]}
+    onResponderMove={[Function]}
+    onResponderRelease={[Function]}
+    onResponderTerminate={[Function]}
+    onResponderTerminationRequest={[Function]}
+    onStartShouldSetResponder={[Function]}
+    style={
+      Object {
+        "alignItems": "center",
+        "borderColor": "#bbb",
+        "borderRadius": 25,
+        "borderWidth": 2,
+        "height": 40,
+        "justifyContent": "center",
+        "marginRight": 5,
+        "opacity": 1,
+        "width": 20,
+      }
+    }
+  >
+    <Text>
+      ...
+    </Text>
+  </View>
+  <View
+    style={
+      Object {
+        "flexDirection": "row",
+        "transform": Array [
+          Object {
+            "translateX": 1700,
+          },
+        ],
+        "width": "35%",
+      }
+    }
+  >
+    <View
+      accessible={true}
+      focusable={true}
+      onClick={[Function]}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        Object {
+          "alignItems": "center",
+          "backgroundColor": "green",
+          "borderRadius": 5,
+          "height": 40,
+          "justifyContent": "center",
+          "marginRight": 2,
+          "opacity": 1,
+          "width": "45%",
+        }
+      }
+    >
+      <Text>
+        Edit
+      </Text>
+    </View>
+    <View
+      accessible={true}
+      focusable={true}
+      onClick={[Function]}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        Object {
+          "alignItems": "center",
+          "backgroundColor": "red",
+          "borderRadius": 5,
+          "height": 40,
+          "justifyContent": "center",
+          "marginLeft": 2,
+          "opacity": 1,
+          "width": "45%",
+        }
+      }
+    >
+      <Text>
+        Delete
+      </Text>
+    </View>
+  </View>
+</View>
+`;
+
+exports[`renders correctly 1`] = `
+<View
+  style={
+    Object {
+      "alignItems": "center",
+      "flexDirection": "row",
+      "justifyContent": "center",
+      "marginVertical": 10,
+      "width": "100%",
+    }
+  }
+>
+  <View
+    style={
+      Array [
+        Object {
+          "borderRadius": 15,
+          "marginRight": 20,
+          "paddingVertical": 10,
+          "width": "50%",
+        },
+        Object {
+          "backgroundColor": "#7AE7C7",
+        },
+      ]
+    }
+  >
+    <Text
+      style={
+        Object {
+          "color": "gray",
+          "fontSize": 20,
+          "textAlign": "center",
+          "width": "100%",
+        }
+      }
+    >
+      1,500
+    </Text>
+  </View>
+  <View
+    accessible={true}
+    focusable={true}
+    onClick={[Function]}
+    onResponderGrant={[Function]}
+    onResponderMove={[Function]}
+    onResponderRelease={[Function]}
+    onResponderTerminate={[Function]}
+    onResponderTerminationRequest={[Function]}
+    onStartShouldSetResponder={[Function]}
+    style={
+      Object {
+        "alignItems": "center",
+        "borderColor": "#bbb",
+        "borderRadius": 25,
+        "borderWidth": 2,
+        "height": 40,
+        "justifyContent": "center",
+        "marginRight": 5,
+        "opacity": 1,
+        "width": 20,
+      }
+    }
+  >
+    <Text>
+      ...
+    </Text>
+  </View>
+  <View
+    style={
+      Object {
+        "flexDirection": "row",
+        "transform": Array [
+          Object {
+            "translateX": 1700,
+          },
+        ],
+        "width": "35%",
+      }
+    }
+  >
+    <View
+      accessible={true}
+      focusable={true}
+      onClick={[Function]}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        Object {
+          "alignItems": "center",
+          "backgroundColor": "green",
+          "borderRadius": 5,
+          "height": 40,
+          "justifyContent": "center",
+          "marginRight": 2,
+          "opacity": 1,
+          "width": "45%",
+        }
+      }
+      testID="edit"
+    >
+      <Text>
+        Edit
+      </Text>
+    </View>
+    <View
+      accessible={true}
+      focusable={true}
+      onClick={[Function]}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        Object {
+          "alignItems": "center",
+          "backgroundColor": "red",
+          "borderRadius": 5,
+          "height": 40,
+          "justifyContent": "center",
+          "marginLeft": 2,
+          "opacity": 1,
+          "width": "45%",
+        }
+      }
+    >
+      <Text>
+        Delete
+      </Text>
+    </View>
+  </View>
+</View>
+`;
