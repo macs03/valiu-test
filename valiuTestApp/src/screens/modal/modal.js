@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import {View, Text, Button, TextInput} from 'react-native';
+import {View, Text, TouchableOpacity, TextInput} from 'react-native';
 import PropTypes from 'prop-types';
 import app from '../../lib/app';
 import styles from './styles';
@@ -21,9 +21,20 @@ const Modal = ({navigation: {goBack}}) => {
 
   return (
     <View style={styles.container}>
-      <TextInput placeholder={'Add amount'} onFocus={showCustomKeyboard} />
-      <Text style={styles.darkText}>Modal Screen</Text>
-      <Button title="Send Amount" onPress={() => sendMessage()} />
+      <View style={styles.header}>
+        <Text style={styles.lightText}>Modal Screen</Text>
+        <TouchableOpacity style={styles.closeButton} onPress={() => goBack()}>
+          <Text>X</Text>
+        </TouchableOpacity>
+      </View>
+      <View style={styles.inputContainer}>
+        <TextInput placeholder={'Add amount'} onFocus={showCustomKeyboard} />
+        <TouchableOpacity
+          style={styles.sendButton}
+          onPress={() => sendMessage()}>
+          <Text style={styles.lightText}>Send Amount</Text>
+        </TouchableOpacity>
+      </View>
       {keyboardShowed && <KeyboardView title="Custom Keyboard" />}
     </View>
   );
