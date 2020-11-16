@@ -25,7 +25,11 @@ const Modal = ({navigation: {goBack}}) => {
   const onNumbers = (value) => {
     keyboardValue.push(value);
 
-    amountTagValue = setInputValue(keyboardValue);
+    if (setInputValue(keyboardValue) !== null) {
+      amountTagValue = setInputValue(keyboardValue);
+    } else {
+      keyboardValue.pop();
+    }
 
     inputRef.setNativeProps({text: amountTagValue});
   };
