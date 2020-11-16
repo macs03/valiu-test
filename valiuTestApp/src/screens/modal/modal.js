@@ -17,7 +17,7 @@ const Modal = ({navigation: {goBack}}) => {
 
   const sendMessage = () => {
     app.socket.emit('amountTag', {
-      amount: amountTagValue,
+      amount: amountTagValue === null ? 0 : amountTagValue,
       color: colors[ramdom(11)],
     });
     goBack();

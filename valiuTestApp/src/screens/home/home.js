@@ -20,6 +20,7 @@ const Home = ({navigation}) => {
 
   useEffect(() => {
     app.socket.on('amountTag', (event) => {
+      console.log(event);
       setTags(event);
     });
   });
@@ -32,6 +33,12 @@ const Home = ({navigation}) => {
     } else {
       animations.exitStickyAnimation.start();
     }
+  };
+
+  const onDelete = (id) => {
+    app.socket.emit('deleteAmountTag', {
+      id,
+    });
   };
 
   return (
@@ -55,7 +62,7 @@ const Home = ({navigation}) => {
             index={tag.id}
             tag={tag.amount}
             editTag={() => {}}
-            deleteTag={() => {}}
+            deleteTag={onDelete}
             key={index}
             color={tag.color}
           />
