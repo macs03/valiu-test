@@ -2,14 +2,16 @@ import PropTypes from 'prop-types';
 import React, {useState, useRef} from 'react';
 import {View, Text, TouchableOpacity, TextInput} from 'react-native';
 
-import app from '../../lib/app';
 import styles from './styles';
+import app from '../../lib/app';
+import {setInputValue} from '../../lib/helper';
 import KeyboardView from '../../components/keyboard/keyboardView';
 
 const Modal = ({navigation: {goBack}}) => {
   const [keyboardShowed, setKeyboardShowed] = useState(false);
-  const inputRef = useRef(null);
+  let inputRef = useRef(null);
   let amount = 0;
+  let keyboardValue = [];
 
   const sendMessage = () => {
     amount++;
@@ -22,8 +24,9 @@ const Modal = ({navigation: {goBack}}) => {
   };
 
   const onNumbers = (value) => {
-    console.log(value);
-    console.log(inputRef.current);
+    keyboardValue.push(value);
+
+    inputRef.setNativeProps({text: setInputValue(keyboardValue)});
   };
 
   return (
@@ -41,7 +44,7 @@ const Modal = ({navigation: {goBack}}) => {
         <TextInput
           placeholder={'Add amount'}
           onFocus={showCustomKeyboard}
-          ref={inputRef}
+          ref={(component) => (inputRef = component)}
         />
         <TouchableOpacity
           style={styles.sendButton}

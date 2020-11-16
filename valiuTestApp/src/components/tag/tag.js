@@ -4,7 +4,7 @@ import {View, Text, Animated, TouchableOpacity} from 'react-native';
 import PropTypes from 'prop-types';
 
 import colors from '../../themes/colors';
-import ramdom from '../../lib/helper';
+import {ramdom} from '../../lib/helper';
 import styles from './styles';
 import Animations from './animations';
 
