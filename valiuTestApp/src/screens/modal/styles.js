@@ -10,7 +10,9 @@ const styles = StyleSheet.create({
     paddingTop: 24,
     alignItems: 'center',
     justifyContent: 'space-around',
-    height: 130,
+    height: 300,
+    backgroundColor: 'yellow',
+    position: 'relative',
   },
   lightText: {
     fontSize: 20,
@@ -48,6 +50,20 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     borderRadius: 25,
+  },
+  inputTouchable: {
+    position: 'absolute',
+    backgroundColor: 'transparent',
+    width: '100%',
+    height: 80,
+    top: 50,
+    left: 0,
+    elevation: 2,
+    zIndex: 2,
+  },
+  textInput: {
+    elevation: 1,
+    zIndex: 1,
   },
 });
 

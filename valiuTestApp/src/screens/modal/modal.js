@@ -1,6 +1,12 @@
 import PropTypes from 'prop-types';
 import React, {useState, useRef} from 'react';
-import {View, Text, TouchableOpacity, TextInput} from 'react-native';
+import {
+  View,
+  Text,
+  TouchableOpacity,
+  TextInput,
+  TouchableNativeFeedback,
+} from 'react-native';
 
 import styles from './styles';
 import app from '../../lib/app';
@@ -46,15 +52,25 @@ const Modal = ({navigation: {goBack}}) => {
         </TouchableOpacity>
       </View>
       <View style={styles.inputContainer}>
+        <TouchableOpacity
+          style={styles.inputTouchable}
+          onPress={showCustomKeyboard}>
+          <View />
+        </TouchableOpacity>
         <TextInput
           placeholder={'Add amount'}
-          onFocus={showCustomKeyboard}
+          style={styles.textInput}
           ref={(component) => (inputRef = component)}
         />
         <TouchableOpacity
           style={styles.sendButton}
           onPress={() => sendMessage()}>
           <Text style={styles.lightText}>Send Amount</Text>
+        </TouchableOpacity>
+        <TouchableOpacity
+          style={styles.sendButton}
+          onPress={() => inputRef.clear()}>
+          <Text style={styles.lightText}>Clear</Text>
         </TouchableOpacity>
       </View>
       {keyboardShowed && (
