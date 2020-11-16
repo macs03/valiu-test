@@ -10,12 +10,11 @@ import KeyboardView from '../../components/keyboard/keyboardView';
 const Modal = ({navigation: {goBack}}) => {
   const [keyboardShowed, setKeyboardShowed] = useState(false);
   let inputRef = useRef(null);
-  let amount = 0;
   let keyboardValue = [];
+  let amountTagValue = null;
 
   const sendMessage = () => {
-    amount++;
-    app.socket.emit('amountTag', amount);
+    app.socket.emit('amountTag', amountTagValue);
     goBack();
   };
 
@@ -26,7 +25,9 @@ const Modal = ({navigation: {goBack}}) => {
   const onNumbers = (value) => {
     keyboardValue.push(value);
 
-    inputRef.setNativeProps({text: setInputValue(keyboardValue)});
+    amountTagValue = setInputValue(keyboardValue);
+
+    inputRef.setNativeProps({text: amountTagValue});
   };
 
   return (
