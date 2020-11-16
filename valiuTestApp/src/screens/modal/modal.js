@@ -1,12 +1,6 @@
 import PropTypes from 'prop-types';
 import React, {useState, useRef} from 'react';
-import {
-  View,
-  Text,
-  TouchableOpacity,
-  TextInput,
-  TouchableNativeFeedback,
-} from 'react-native';
+import {View, Text, TouchableOpacity, TextInput} from 'react-native';
 
 import styles from './styles';
 import app from '../../lib/app';
