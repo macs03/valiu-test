@@ -3,12 +3,10 @@ import React, {useRef} from 'react';
 import {View, Text, Animated, TouchableOpacity} from 'react-native';
 import PropTypes from 'prop-types';
 
-import colors from '../../themes/colors';
-import ramdom from '../../lib/helper';
 import styles from './styles';
 import Animations from './animations';
 
-const Tag = ({editTag, deleteTag, tag, index}) => {
+const Tag = ({editTag, deleteTag, tag, index, color}) => {
   let showButton = false;
 
   const buttonsPosition = useRef(new Animated.Value(1700)).current;
@@ -28,7 +26,7 @@ const Tag = ({editTag, deleteTag, tag, index}) => {
 
   return (
     <View style={styles.container} key={index}>
-      <View style={[styles.tag, {backgroundColor: colors[ramdom(11)]}]}>
+      <View style={[styles.tag, {backgroundColor: color}]}>
         <Text style={styles.tagText}>{tag}</Text>
       </View>
       <TouchableOpacity
@@ -64,6 +62,7 @@ Tag.propTypes = {
   deleteTag: PropTypes.func.isRequired,
   tag: PropTypes.string.isRequired,
   index: PropTypes.number.isRequired,
+  color: PropTypes.string.isRequired,
 };
 
 export default Tag;

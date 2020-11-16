@@ -34,6 +34,12 @@ const Home = ({navigation}) => {
     }
   };
 
+  const onDelete = (id) => {
+    app.socket.emit('deleteAmountTag', {
+      id,
+    });
+  };
+
   return (
     <View style={styles.container}>
       <Animated.View style={[styles.header, {height: headerHeight}]}>
@@ -52,11 +58,12 @@ const Home = ({navigation}) => {
         onScroll={onScroll}>
         {tags.map((tag, index) => (
           <Tag
-            index={index}
-            tag={tag}
-            editTag={() => {}}
-            deleteTag={() => {}}
+            index={tag.id}
+            tag={tag.amount}
+            editTag={() => navigation.navigate('Modal', tag)}
+            deleteTag={onDelete}
             key={index}
+            color={tag.color}
           />
         ))}
       </ScrollView>

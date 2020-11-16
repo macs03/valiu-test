@@ -1,19 +1,39 @@
 import PropTypes from 'prop-types';
-import React, {useState, useRef} from 'react';
+import React, {useState, useRef, useEffect} from 'react';
 import {View, Text, TouchableOpacity, TextInput} from 'react-native';
 
-import app from '../../lib/app';
 import styles from './styles';
+import app from '../../lib/app';
+import {ramdom} from '../../lib/helper';
+import colors from '../../themes/colors';
+import {setInputValue} from '../../lib/helper';
 import KeyboardView from '../../components/keyboard/keyboardView';
 
-const Modal = ({navigation: {goBack}}) => {
+const Modal = ({navigation: {goBack}, route: {params}}) => {
   const [keyboardShowed, setKeyboardShowed] = useState(false);
-  const inputRef = useRef(null);
-  let amount = 0;
+  let inputRef = useRef(null);
+  let keyboardValue = [];
+  let amountTagValue = null;
+
+  useEffect(() => {
+    if (params) {
+      inputRef.setNativeProps({text: params.amount});
+    }
+  });
 
   const sendMessage = () => {
-    amount++;
-    app.socket.emit('amountTag', amount);
+    if (params) {
+      app.socket.emit('editAmountTag', {
+        id: params.id,
+        amount: amountTagValue === null ? params.amount : amountTagValue,
+        color: params.color,
+      });
+    } else {
+      app.socket.emit('amountTag', {
+        amount: amountTagValue === null ? '0' : amountTagValue,
+        color: colors[ramdom(11)],
+      });
+    }
     goBack();
   };
 
@@ -22,8 +42,15 @@ const Modal = ({navigation: {goBack}}) => {
   };
 
   const onNumbers = (value) => {
-    console.log(value);
-    console.log(inputRef.current);
+    keyboardValue.push(value);
+
+    if (setInputValue(keyboardValue) !== null) {
+      amountTagValue = setInputValue(keyboardValue);
+    } else {
+      keyboardValue.pop();
+    }
+
+    inputRef.setNativeProps({text: amountTagValue});
   };
 
   return (
@@ -38,15 +65,25 @@ const Modal = ({navigation: {goBack}}) => {
         </TouchableOpacity>
       </View>
       <View style={styles.inputContainer}>
+        <TouchableOpacity
+          style={styles.inputTouchable}
+          onPress={showCustomKeyboard}>
+          <View />
+        </TouchableOpacity>
         <TextInput
           placeholder={'Add amount'}
-          onFocus={showCustomKeyboard}
-          ref={inputRef}
+          style={styles.textInput}
+          ref={(component) => (inputRef = component)}
         />
         <TouchableOpacity
           style={styles.sendButton}
           onPress={() => sendMessage()}>
           <Text style={styles.lightText}>Send Amount</Text>
+        </TouchableOpacity>
+        <TouchableOpacity
+          style={styles.sendButton}
+          onPress={() => inputRef.clear()}>
+          <Text style={styles.lightText}>Clear</Text>
         </TouchableOpacity>
       </View>
       {keyboardShowed && (

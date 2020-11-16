@@ -68,17 +68,49 @@ exports[`renders correctly 1`] = `
     style={
       Object {
         "alignItems": "center",
-        "height": 130,
+        "height": 300,
         "justifyContent": "space-around",
         "paddingTop": 24,
+        "position": "relative",
       }
     }
   >
+    <View
+      accessible={true}
+      focusable={true}
+      onClick={[Function]}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        Object {
+          "backgroundColor": "transparent",
+          "elevation": 2,
+          "height": 80,
+          "left": 0,
+          "opacity": 1,
+          "position": "absolute",
+          "top": 50,
+          "width": "100%",
+          "zIndex": 2,
+        }
+      }
+    >
+      <View />
+    </View>
     <TextInput
       allowFontScaling={true}
-      onFocus={[Function]}
       placeholder="Add amount"
       rejectResponderTermination={true}
+      style={
+        Object {
+          "elevation": 1,
+          "zIndex": 1,
+        }
+      }
       underlineColorAndroid="transparent"
     />
     <View
@@ -113,6 +145,40 @@ exports[`renders correctly 1`] = `
         }
       >
         Send Amount
+      </Text>
+    </View>
+    <View
+      accessible={true}
+      focusable={true}
+      onClick={[Function]}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        Object {
+          "alignItems": "center",
+          "backgroundColor": "rgba(25,105,0,0.8)",
+          "borderRadius": 25,
+          "height": 50,
+          "justifyContent": "center",
+          "opacity": 1,
+          "padding": 2,
+          "width": 230,
+        }
+      }
+    >
+      <Text
+        style={
+          Object {
+            "color": "white",
+            "fontSize": 20,
+          }
+        }
+      >
+        Clear
       </Text>
     </View>
   </View>
