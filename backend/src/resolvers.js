@@ -1,7 +1,11 @@
 let allMessages = [];
 
 const handleEvents = event => {
-  allMessages.push(event);
+  allMessages.push({
+    id: allMessages.length,
+    amount: event.amount,
+    color: event.color
+  });
   allMessages.reverse();
 };
 

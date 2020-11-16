@@ -4,6 +4,8 @@ import {View, Text, TouchableOpacity, TextInput} from 'react-native';
 
 import styles from './styles';
 import app from '../../lib/app';
+import {ramdom} from '../../lib/helper';
+import colors from '../../themes/colors';
 import {setInputValue} from '../../lib/helper';
 import KeyboardView from '../../components/keyboard/keyboardView';
 
@@ -14,7 +16,10 @@ const Modal = ({navigation: {goBack}}) => {
   let amountTagValue = null;
 
   const sendMessage = () => {
-    app.socket.emit('amountTag', amountTagValue);
+    app.socket.emit('amountTag', {
+      amount: amountTagValue,
+      color: colors[ramdom(11)],
+    });
     goBack();
   };
 

@@ -11,7 +11,6 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'space-around',
     height: 300,
-    backgroundColor: 'yellow',
     position: 'relative',
   },
   lightText: {

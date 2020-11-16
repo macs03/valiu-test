@@ -52,11 +52,12 @@ const Home = ({navigation}) => {
         onScroll={onScroll}>
         {tags.map((tag, index) => (
           <Tag
-            index={index}
-            tag={tag}
+            index={tag.id}
+            tag={tag.amount}
             editTag={() => {}}
             deleteTag={() => {}}
             key={index}
+            color={tag.color}
           />
         ))}
       </ScrollView>
