@@ -68,7 +68,6 @@ exports[`renders correctly 1`] = `
     style={
       Object {
         "alignItems": "center",
-        "backgroundColor": "yellow",
         "height": 300,
         "justifyContent": "space-around",
         "paddingTop": 24,

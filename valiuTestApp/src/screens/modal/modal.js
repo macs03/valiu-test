@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types';
-import React, {useState, useRef} from 'react';
+import React, {useState, useRef, useEffect} from 'react';
 import {View, Text, TouchableOpacity, TextInput} from 'react-native';
 
 import styles from './styles';
@@ -9,15 +9,21 @@ import colors from '../../themes/colors';
 import {setInputValue} from '../../lib/helper';
 import KeyboardView from '../../components/keyboard/keyboardView';
 
-const Modal = ({navigation: {goBack}}) => {
+const Modal = ({navigation: {goBack}, route: {params}}) => {
   const [keyboardShowed, setKeyboardShowed] = useState(false);
   let inputRef = useRef(null);
   let keyboardValue = [];
   let amountTagValue = null;
 
+  useEffect(() => {
+    if (params) {
+      inputRef.setNativeProps({text: params.amount});
+    }
+  });
+
   const sendMessage = () => {
     app.socket.emit('amountTag', {
-      amount: amountTagValue === null ? 0 : amountTagValue,
+      amount: amountTagValue === null ? '0' : amountTagValue,
       color: colors[ramdom(11)],
     });
     goBack();

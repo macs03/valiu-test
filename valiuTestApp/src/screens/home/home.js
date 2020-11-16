@@ -61,7 +61,7 @@ const Home = ({navigation}) => {
           <Tag
             index={tag.id}
             tag={tag.amount}
-            editTag={() => {}}
+            editTag={() => navigation.navigate('Modal', tag)}
             deleteTag={onDelete}
             key={index}
             color={tag.color}
