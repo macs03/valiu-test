@@ -11,13 +11,13 @@ import renderer from 'react-test-renderer';
 import {on, Interactions, findByTestId} from '../../../src/lib/user-simulator';
 
 it('renders correctly', () => {
-  const tree = renderer.create(<Modal navigation={{}} />);
+  const tree = renderer.create(<Modal navigation={{}} route={{}} />);
   expect(tree).toMatchSnapshot();
 });
 
 it('calls go back after tap button', () => {
   const spy = {goBack: jest.fn()};
-  const tree = renderer.create(<Modal navigation={spy} />);
+  const tree = renderer.create(<Modal navigation={spy} route={{}} />);
 
   const button = findByTestId(tree, 'goBack');
 
