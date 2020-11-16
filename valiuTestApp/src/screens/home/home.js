@@ -20,7 +20,6 @@ const Home = ({navigation}) => {
 
   useEffect(() => {
     app.socket.on('amountTag', (event) => {
-      console.log(event);
       setTags(event);
     });
   });

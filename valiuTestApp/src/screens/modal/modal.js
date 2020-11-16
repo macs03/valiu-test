@@ -22,10 +22,18 @@ const Modal = ({navigation: {goBack}, route: {params}}) => {
   });
 
   const sendMessage = () => {
-    app.socket.emit('amountTag', {
-      amount: amountTagValue === null ? '0' : amountTagValue,
-      color: colors[ramdom(11)],
-    });
+    if (params) {
+      app.socket.emit('editAmountTag', {
+        id: params.id,
+        amount: amountTagValue === null ? params.amount : amountTagValue,
+        color: params.color,
+      });
+    } else {
+      app.socket.emit('amountTag', {
+        amount: amountTagValue === null ? '0' : amountTagValue,
+        color: colors[ramdom(11)],
+      });
+    }
     goBack();
   };
 

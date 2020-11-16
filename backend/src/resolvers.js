@@ -13,7 +13,20 @@ const handleAddEvents = event => {
 const handleDeleteEvents = event => {
   const arrayFiltered = allMessages.filter(item => item.id !== event.id);
 
-  allMessages = arrayFiltered.reverse();
+  allMessages = arrayFiltered;
+};
+
+const handleEditEvents = event => {
+  const arrayEdited = allMessages.map(item => {
+    if (item.id == event.id) {
+      console.log("equal");
+      item.amount = event.amount;
+      item.color = event.color;
+    }
+    return item;
+  });
+
+  allMessages = arrayEdited;
 };
 
 module.exports = {
@@ -43,7 +56,7 @@ module.exports = {
     socket.on("editAmountTag", message => {
       console.info("EDIT");
       console.info(message);
-      handleEvents(message);
+      handleEditEvents(message);
       io.emit("amountTag", allMessages);
     });
 
